@@ -1,0 +1,12 @@
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Bağımlılıklar
+node_modules/
+
+# Ortam dosyaları
+.env
+.env.local

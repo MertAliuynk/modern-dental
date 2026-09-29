@@ -1,0 +1,25 @@
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  {
+    // React Compiler kullanılmıyor; bu kurallar yalnızca uyarı.
+    rules: {
+      "react-hooks/set-state-in-effect": "warn",
+      "react-hooks/purity": "warn",
+    },
+  },
+  globalIgnores([
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+    // Eski siteden değiştirilmeden alınan diş şeması SVG'leri
+    "src/components/teeth/**",
+  ]),
+]);
+
+export default eslintConfig;
